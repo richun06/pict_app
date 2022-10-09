@@ -1,5 +1,6 @@
 <h1>投稿一覧</h1>
 <%= link_to "新規作成画面へ", new_blog_path, class:"btn" %>
+<%= link_to "Mail", 'http://localhost:3000/letter_opener'%>
 <table>
   <tr>
     <th>名前</th>
@@ -13,8 +14,15 @@
     <td><%= blog.content %></td>
     <td><%= image_tag(blog.image.url) if blog.image && blog.image.url %></td>
     <td><%= link_to "詳細画面へ", blog_path(blog.id) %></td>
-    <td><%= link_to "編集画面へ", edit_blog_path(blog.id), data:{confirm:'本当に編集してよいですか？'}%></td>
-    <td><%= link_to "削除する",blog_path(blog.id),method: :delete, data:{confirm:'本当に削除してよいですか？'}%></td>
+    <td>
+      <% if blog.user_id == current_user.id %>
+        <%= link_to "編集画面へ", edit_blog_path(blog.id), data:{confirm:'本当に編集してよいですか？'}%>
+      <% end %>
+    </td>
+    <td>
+      <% if blog.user_id == current_user.id %>
+        <%= link_to "削除する",blog_path(blog.id),method: :delete, data:{confirm:'本当に削除してよいですか？'}%></td>
+      <% end %>
   </tr>
   <% end %>
 </table>

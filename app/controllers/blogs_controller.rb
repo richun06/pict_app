@@ -16,6 +16,7 @@ class BlogsController < ApplicationController
         render :new
       else
         if @blog.save
+          BlogMailer.blog_mail(@blog).deliver
           redirect_to blogs_path, notice: "ブログ作成完了！"
         else
           render :new
