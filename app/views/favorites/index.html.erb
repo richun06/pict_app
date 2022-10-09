@@ -1,0 +1,17 @@
+<h1>お気に入り一覧</h1>
+<%= link_to "戻る", user_path(current_user.id), class:"btn" %>
+<table>
+  <tr>
+    <th>名前</th>
+    <th>内容</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @favorites.each do |favorite| %>
+  <tr>
+    <td><%= favorite.blog.user.name %></td>
+    <td><%= favorite.blog.content %></td>
+    <td><%= image_tag favorite.blog.image.url %></td>
+  </tr>
+  <% end %>
+</table>
