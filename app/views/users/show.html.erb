@@ -2,6 +2,16 @@
 
 <p>メールアドレス: <%= @user.email %></p>
 
+<div>
+  <% if @user.image? %>
+    <%= image_tag @user.image.url %>
+  <% else %>
+    <%= image_tag 'user.icon.png', size: "100x100" %>
+  <% end %>
+</div>
+
+<%= link_to "プロフィール編集", edit_user_path(@user.id), data:{confirm:'本当に編集してよいですか？'}%>
+
 <%= link_to "Favorite一覧へ", favorites_path %>
 
 <%= link_to "Blog一覧へ", blogs_path, class:"btn" %>

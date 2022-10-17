@@ -1,0 +1,6 @@
+<h1>確認画面</h1>
+<%= form_with(model:@user, url:new_user_path, local:true, method:"get") do |form| %>
+  <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "戻る", name: "back" %>
+<% end %>
