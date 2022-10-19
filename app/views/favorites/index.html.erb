@@ -6,10 +6,10 @@
     <th>内容</th>
   </tr>
   <% @favorites.each do |favorite| %>
-  <tr>
-    <td><%= favorite.blog.user.name %></td>
-    <td><%= favorite.blog.content %></td>
-    <td><%= image_tag favorite.blog.image.url %></td>
-  </tr>
+    <tr>
+      <td><%= favorite.blog.user.name %></td>
+      <td><%= favorite.blog.content %></td>
+      <td><%= image_tag favorite.blog.image.url %></td>
+    </tr>
   <% end %>
 </table>

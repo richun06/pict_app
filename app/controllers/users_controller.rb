@@ -22,7 +22,6 @@ class UsersController < ApplicationController
   end
 
   def confirm
-    # @user = User.new(user_params)
     @user = current_user.blogs.build(user_params)
     render :show if @user.invalid?
   end
