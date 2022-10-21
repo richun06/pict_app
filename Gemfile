@@ -27,7 +27,6 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
-  gem 'letter_opener_web'
 end
 
 group :test do
@@ -42,3 +41,5 @@ gem 'faker'
 gem 'net-smtp'
 gem 'net-imap'
 gem 'net-pop'
+
+gem 'letter_opener_web'
